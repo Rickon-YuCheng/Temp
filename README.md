@@ -58,8 +58,7 @@ uv run scripts/train.py --config configs/cfg.yaml --wandb
 uv run scripts/train.py --config configs/cfg.yaml --bs 64 --lr 0.0005
 ```
 
-## ⚙️ Configuration
-🧪 Reproducibility (實驗重現)
+## 🧪 Reproducibility (實驗重現)
 為了確保實驗結果的可重現性，請遵循以下規範：
 
 1. 隨機種子: 預設種子已在 cfg.yaml 中設定為 0，並透過 utils.set_seed() 統一控制。
