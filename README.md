@@ -30,7 +30,7 @@
 ## 🚀 Quick Start
 
 1. 環境初始化
-本專案使用 'uv' 進行套件管理。請確保已安裝 uv。
+本專案使用 `uv` 進行套件管理。請確保已安裝 uv。
 ```bash
 # 同步虛擬環境與依賴
 uv sync
@@ -47,7 +47,7 @@ uv run scripts/train.py --config configs/cfg.yaml --wandb
 ```
 
 ## ⚙️ Configuration
-所有的實驗參數都定義在 'configs/*.yaml' 中。
+所有的實驗參數都定義在 `configs/*.yaml` 中。
 
 - Model: 定義輸入輸出維度、隱藏層參數等。
 
@@ -61,7 +61,7 @@ uv run scripts/train.py --config configs/cfg.yaml --bs 64 --lr 0.0005
 ## 🧪 Reproducibility (實驗重現)
 為了確保實驗結果的可重現性，請遵循以下規範：
 
-1. 隨機種子: 預設種子已在 cfg.yaml 中設定為 0，並透過 utils.set_seed() 統一控制。
+1. 隨機種子: 預設種子已在 cfg.yaml 中設定為 `0`，並透過 utils.set_seed() 統一控制。
 
 2. 環境鎖定: 始終透過 uv.lock 確保依賴版本一致。
 
