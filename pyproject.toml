@@ -20,6 +20,12 @@ url = "https://download.pytorch.org/whl/cu121"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "ruff>=0.14.11",
+]
+
 # 強制使用專業的 src 佈局
 [tool.hatch.build.targets.wheel]
 packages = ["src/temp"]
