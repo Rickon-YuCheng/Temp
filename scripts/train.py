@@ -1,7 +1,8 @@
 import argparse
 import yaml
 import wandb
-from temp.utils import set_seed, init_wandb, Timer, Averager
+from temp.utils import set_seed, init_wandb, Timer, Averager  # noqa: F401
+
 
 def train(config, model, dataloader):
     """這是一個通用的訓練存根"""
@@ -9,6 +10,7 @@ def train(config, model, dataloader):
     # optimizer = ...
     # for epoch in ...
     pass
+
 
 if __name__ == "__main__":
     # 1. 參數解析
@@ -18,19 +20,19 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # 2. 配置加載
-    with open(args.config, 'r') as f:
+    with open(args.config, "r") as f:
         config = yaml.safe_load(f)
-    
+
     # 3. 環境初始化
     set_seed(42)
-    
+
     # 4. 組件構建 (此處為 Stub 邏輯)
     # model = build_model(config)
     # dataloader = build_dataloader(config)
-    
+
     # 5. 實驗紀錄
     if args.wandb:
-        init_wandb(config['project'], config['name'], config)
+        init_wandb(config["project"], config["name"], config)
 
     # 6. 執行
     try:

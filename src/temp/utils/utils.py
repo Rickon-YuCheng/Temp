@@ -1,9 +1,9 @@
-import os
 import random
 import time
 
 import torch
 import numpy as np
+import wandb
 
 
 def set_seed(seed):
@@ -27,11 +27,16 @@ def numpy_fix_init(worker_id):
     np.random.seed(2 << 16 + worker_id)
 
 
-numpy_init_dict = {"train": numpy_random_init, "val": numpy_fix_init, "test": numpy_fix_init}
+numpy_init_dict = {
+    "train": numpy_random_init,
+    "val": numpy_fix_init,
+    "test": numpy_fix_init,
+}
 
 
-class Averager():
+class Averager:
     """用於計算一個 Epoch 內 Loss 的平均值"""
+
     def __init__(self):
         self.n = 0.0
         self.v = 0.0
@@ -44,8 +49,7 @@ class Averager():
         return self.v
 
 
-class Timer():
-
+class Timer:
     def __init__(self):
         self.v = time.time()
 
@@ -58,20 +62,20 @@ class Timer():
 
 def time_text(t):
     if t >= 3600:
-        return '{:.1f}h'.format(t / 3600)
+        return "{:.1f}h".format(t / 3600)
     elif t >= 60:
-        return '{:.1f}m'.format(t / 60)
+        return "{:.1f}m".format(t / 60)
     else:
-        return '{:.1f}s'.format(t)
+        return "{:.1f}s".format(t)
 
 
 def compute_num_params(model, text=False):
     tot = int(sum([np.prod(p.shape) for p in model.parameters()]))
     if text:
         if tot >= 1e6:
-            return '{:.1f}M'.format(tot / 1e6)
+            return "{:.1f}M".format(tot / 1e6)
         else:
-            return '{:.1f}K'.format(tot / 1e3)
+            return "{:.1f}K".format(tot / 1e3)
     else:
         return tot
 
@@ -85,13 +89,13 @@ def init_wandb(config, model=None):
         project=config.get("project_name", "my_project"),
         name=config.get("run_name", None),
         config=config,
-        reinit=True
+        reinit=True,
     )
-    
+
     # 如果有傳入模型，自動紀錄參數量到 WandB Config
     if model is not None:
         params_text = compute_num_params(model, text=True)
         wandb.config.update({"total_params": params_text})
         # wandb.watch(model) # 視需求開啟，可追蹤梯度
-        
+
     return run
