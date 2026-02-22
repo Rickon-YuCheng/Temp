@@ -33,6 +33,7 @@
 本專案使用 `uv` 進行套件管理。請確保已安裝 uv。
 ```bash
 # 同步虛擬環境與依賴
+git clone https://github.com/Rickon-YuCheng/Temp.git .
 uv sync
 ```
 
