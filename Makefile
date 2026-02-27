@@ -1,4 +1,5 @@
 # 不要管資料夾裡有沒有同名的檔案，只要我下指令，你就給我跑後面的腳本就對了
+# uv add transformers uv remove transformers
 .PHONY: main main-wandb lint format clean test check tree tree2
 
 # 啟動實驗
