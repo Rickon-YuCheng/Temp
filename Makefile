@@ -28,10 +28,9 @@ clean:
 
 # tree
 tree:
-        uv run tree -L 2
+	uv run tree -L 2
 tree2:
-        @git ls-tree -r --name-only HEAD | tree --fromfile .
-
+	@git ls-tree -r --name-only HEAD | tree --fromfile .
 	rm -rf .ruff_cache
 
 # 環境檢查
