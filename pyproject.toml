@@ -1,5 +1,5 @@
 [project]
-name = "temp" # 建立新專案時再修改
+name = "temp" # 建立新專案時再修改,必須改成與src底下一樣的名字，含這個這邊共2個要改
 version = "0.1.0"
 description = "A professional deep learning research template with uv and DevContainer."
 readme = "README.md"
@@ -28,7 +28,7 @@ dev = [
 
 # 強制使用專業的 src 佈局
 [tool.hatch.build.targets.wheel]
-packages = ["src/temp"]
+packages = ["src/temp"] #這是另一個必改
 
 # 代碼格式檢查配置 (Ruff)
 [tool.ruff]
