@@ -34,6 +34,8 @@
 ```bash
 # 同步虛擬環境與依賴
 git clone https://github.com/Rickon-YuCheng/Temp.git .
+deactivate
+rm -rf .venv
 uv sync
 ```
 
